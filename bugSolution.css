@@ -1,0 +1,18 @@
+One solution is to use Javascript to calculate and set the width of the inner element after the parent element's width has been determined.  Alternatively, consider avoiding nested percentage-based widths or using a different CSS layout approach that doesn't rely on `calc()` with nested percentages.
+
+Here's an example using Javascript:
+
+```javascript
+const container = document.querySelector('.container');
+const inner = document.querySelector('.inner');
+
+function setInnerWidth() {
+  const containerWidth = container.offsetWidth;
+  inner.style.width = `${containerWidth - 20}px`;
+}
+
+window.addEventListener('resize', setInnerWidth);
+setInnerWidth(); // Initial setting
+```
+
+Another approach would be to restructure your CSS using absolute or fixed positioning, flexbox, or grid layout to avoid the dependency on nested percentage calculations.
