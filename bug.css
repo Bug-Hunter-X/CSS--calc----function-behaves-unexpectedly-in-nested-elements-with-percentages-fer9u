@@ -1,0 +1,13 @@
+The CSS property `calc()` is not working as expected when used with percentages within nested elements.  For example, consider the following:
+
+```css
+.container {
+  width: 50%;
+}
+
+.inner {
+  width: calc(100% - 20px);
+}
+```
+
+If the `.container`'s width is calculated based on its parent's width, the `calc()` function inside `.inner` might not calculate correctly if the parent's width isn't finalized yet. This can happen during the rendering process, leading to unexpected results where the `.inner` element has an incorrect width.
